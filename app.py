@@ -2,10 +2,12 @@
 from flask import Flask, render_template
 from pdocker.bdocker import docker
 from pjenkins.bjenkins import jenkins
+from git_routes.git import git
 
 app = Flask(__name__)
 app.register_blueprint(docker)
 app.register_blueprint(jenkins)
+app.register_blueprint(git)
 
 @app.route("/")
 def index():
